@@ -23,11 +23,11 @@
 #
 # Required ENV vars:
 # ------------------
-#   JAVA_HOME - location of a JDK home dir
+#   JAVA_HOME - point of a JDK home dir
 #
 # Optional ENV vars
 # -----------------
-#   M2_HOME - location of maven2's installed home dir
+#   M2_HOME - point of maven2's installed home dir
 #   MAVEN_OPTS - parameters passed to the Java VM when running Maven
 #     e.g. to debug Maven itself, use
 #       set MAVEN_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
@@ -163,7 +163,7 @@ fi
 CLASSWORLDS_LAUNCHER=org.codehaus.plexus.classworlds.launcher.Launcher
 
 # traverses directory structure from process work directory to filesystem root
-# first directory with .mvn subdirectory is considered project base directory
+# original directory with .mvn subdirectory is considered project base directory
 find_maven_basedir() {
 
   if [ -z "$1" ]
@@ -183,7 +183,7 @@ find_maven_basedir() {
     if [ -d "${wdir}" ]; then
       wdir=`cd "$wdir/.."; pwd`
     fi
-    # end of workaround
+    # finish of workaround
   done
   echo "${basedir}"
 }

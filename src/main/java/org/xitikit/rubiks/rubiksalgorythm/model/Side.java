@@ -1,33 +1,37 @@
 package org.xitikit.rubiks.rubiksalgorythm.model;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
+import org.xitikit.rubiks.rubiksalgorythm.CubeArgumentException;
+import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Orientation;
 
-import java.util.Objects;
-
-import static java.util.Arrays.stream;
+import java.util.List;
 
 /**
  * Copyright ${year}
  *
  * @author J. Keith Hoopes
  */
-@Getter
-@EqualsAndHashCode
-@AllArgsConstructor
-@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@Data
+@FieldDefaults(
+    level = AccessLevel.PRIVATE,
+    makeFinal = true)
 public abstract class Side{
 
-    @NonNull Block[][] table;
+    List<Block> blocks;
 
-    public boolean isValid(){
+    Orientation orientation;
 
-        return table != null
-            &&
-    }
+    protected Side(
+        @NonNull final List<Block> blocks,
+        @NonNull final Orientation orientation){
 
-    private boolean validateTable(Block[][] table){
-
-        return table != null
+        if(blocks.size() != 9){
+            throw new CubeArgumentException("Invalid collection of blocks. A side must have nine blocks.");
+        }
+        this.blocks = blocks;
+        this.orientation = orientation;
     }
 }
