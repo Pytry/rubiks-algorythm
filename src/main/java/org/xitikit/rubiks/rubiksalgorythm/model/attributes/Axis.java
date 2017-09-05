@@ -6,5 +6,5 @@ package org.xitikit.rubiks.rubiksalgorythm.model.attributes;
  * @author J. Keith Hoopes
  */
 public enum Axis{
-    X,Y,Z
+    X, Y, Z
 }

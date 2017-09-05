@@ -24,61 +24,58 @@ import static org.xitikit.rubiks.rubiksalgorythm.model.attributes.Color.*;
 @Setter
 @EqualsAndHashCode
 @FieldDefaults(
-  level = AccessLevel.PRIVATE,
-  makeFinal = true)
-public class Panel
-{
+    level = AccessLevel.PRIVATE,
+    makeFinal = true)
+public class Panel{
 
-  @NonFinal
-  Point point;
+    public static final List<Panel> PANELS = unmodifiableList(
+        stream(Point.values())
+            .map(Panel::buildPanel)
+            .collect(toList())
+    );
 
-  /**
-   * The original point the panel had at the start of process.
-   */
-  Point id;
+    /**
+     * The original point the panel had at the start of process.
+     */
+    Point id;
 
-  /**
-   * The color of the panel.
-   */
-  Color color;
+    /**
+     * The color of the panel.
+     */
+    Color color;
 
-  public static final List<Panel> PANELS = unmodifiableList(
-    stream(Point.values())
-      .map(Panel::buildPanel)
-      .collect(toList())
-  );
+    @NonFinal
+    Point point;
 
-  private Panel(
-    final Point id,
-    final Color color)
-  {
+    private Panel(
+        final Point id,
+        final Color color){
 
-    assert id != null;
-    assert color != null;
+        assert id != null;
+        assert color != null;
 
-    this.id = id;
-    this.point = id;
-    this.color = color;
-  }
-
-  private static Panel buildPanel(Point point)
-  {
-    switch (point.getOrientation())
-    {
-      case FRONT:
-        return new Panel(point, WHITE);
-      case BACK:
-        return new Panel(point, YELLOW);
-      case LEFT:
-        return new Panel(point, BLUE);
-      case RIGHT:
-        return new Panel(point, GREEN);
-      case TOP:
-        return new Panel(point, RED);
-      case BOTTOM:
-        return new Panel(point, ORANGE);
-      default:
-        throw new CubeStateException("Invalid Point");
+        this.id = id;
+        this.point = id;
+        this.color = color;
     }
-  }
+
+    private static Panel buildPanel(Point point){
+
+        switch(point.getOrientation()){
+            case FRONT:
+                return new Panel(point, WHITE);
+            case BACK:
+                return new Panel(point, YELLOW);
+            case LEFT:
+                return new Panel(point, BLUE);
+            case RIGHT:
+                return new Panel(point, GREEN);
+            case TOP:
+                return new Panel(point, RED);
+            case BOTTOM:
+                return new Panel(point, ORANGE);
+            default:
+                throw new CubeStateException("Invalid Point");
+        }
+    }
 }

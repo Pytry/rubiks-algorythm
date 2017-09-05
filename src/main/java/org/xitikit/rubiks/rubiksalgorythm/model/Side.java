@@ -16,34 +16,32 @@ import java.util.List;
  */
 @EqualsAndHashCode
 @FieldDefaults(
-  level = AccessLevel.PRIVATE,
-  makeFinal = true)
-public abstract class Side
-{
+    level = AccessLevel.PRIVATE,
+    makeFinal = true)
+public abstract class Side{
 
-  List<Block> blocks;
+    List<Block> blocks;
 
-  Orientation orientation;
+    Orientation orientation;
 
-  Side(
-    @NonNull final List<Block> blocks,
-    @NonNull final Orientation orientation)
-  {
-    if (blocks.size() != 9)
-    {
-      throw new CubeArgumentException("Invalid collection of blocks. A side must have nine blocks.");
+    Side(
+        @NonNull final List<Block> blocks,
+        @NonNull final Orientation orientation){
+
+        if(blocks.size() != 9){
+            throw new CubeArgumentException("Invalid collection of blocks. A side must have nine blocks.");
+        }
+        this.blocks = blocks;
+        this.orientation = orientation;
     }
-    this.blocks = blocks;
-    this.orientation = orientation;
-  }
 
-  public List<Block> getBlocks()
-  {
-    return blocks;
-  }
+    public List<Block> getBlocks(){
 
-  public Orientation getOrientation()
-  {
-    return orientation;
-  }
+        return blocks;
+    }
+
+    public Orientation getOrientation(){
+
+        return orientation;
+    }
 }

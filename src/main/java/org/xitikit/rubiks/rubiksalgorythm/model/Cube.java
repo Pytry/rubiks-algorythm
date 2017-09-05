@@ -20,92 +20,92 @@ import static java.util.stream.Collectors.toMap;
  * @author J. Keith Hoopes
  */
 @FieldDefaults(
-  level = AccessLevel.PRIVATE,
-  makeFinal = true)
-public class Cube
-{
-  private final Set<Block> blocks;
-  private final Map<Position, Block> blockMap;
+    level = AccessLevel.PRIVATE,
+    makeFinal = true)
+public class Cube{
 
-  public Cube()
-  {
-    blocks = unmodifiableSet(Block.createBlocks());
-    blockMap = blocks
-      .stream()
-      .collect(
-        toMap(
-          Block::getId,
-          b -> b
-        )
-      );
-  }
+    private final Set<Block> blocks;
 
-  /**
-   * @return the current list blocks on the "top" of the cube.
-   */
-  public Top top()
-  {
-    return new Top(extractSideBlocks(e -> e.getPosition().x == 0));
-  }
+    private final Map<Position,Block> blockMap;
 
-  /**
-   * @return the current list blocks on the "bottom" of the cube.
-   */
-  public Bottom bottom()
-  {
-    return new Bottom(extractSideBlocks(e -> e.getPosition().x == 2));
-  }
+    public Cube(){
 
-  /**
-   * @return the current list blocks on the "left" of the cube.
-   */
-  public Left left()
-  {
-    return new Left(extractSideBlocks(e -> e.getPosition().y == 0));
-  }
+        blocks = unmodifiableSet(Block.createBlocks());
+        blockMap = blocks
+            .stream()
+            .collect(
+                toMap(
+                    Block::getId,
+                    b -> b
+                )
+            );
+    }
 
-  /**
-   * @return the current list blocks on the "right" of the cube.
-   */
-  public Right right()
-  {
-    return new Right(extractSideBlocks(e -> e.getPosition().y == 2));
-  }
+    /**
+     * @return the current list blocks on the "top" of the cube.
+     */
+    public Top top(){
 
-  /**
-   * @return the current list blocks on the "front" of the cube.
-   */
-  public Front front()
-  {
-    return new Front(extractSideBlocks(e -> e.getPosition().z == 0));
-  }
+        return new Top(extractSideBlocks(e -> e.getPosition().x == 0));
+    }
 
-  /**
-   * @return the current list blocks on the "back" of the cube.
-   */
-  public Back back()
-  {
+    /**
+     * @return the current list blocks on the "top" of the cube.
+     */
+    private List<Block> extractSideBlocks(Predicate<Block> filter){
 
-    return new Back(extractSideBlocks(e -> e.getPosition().z == 2));
-  }
+        return blocks.stream()
+            .filter(filter)
+            .collect(toList());
+    }
 
-  public List<Block> all()
-  {
-    return new ArrayList<>(blocks);
-  }
+    /**
+     * @return the current list blocks on the "bottom" of the cube.
+     */
+    public Bottom bottom(){
 
-  public Block get(Position id)
-  {
-    return blockMap.get(id);
-  }
+        return new Bottom(extractSideBlocks(e -> e.getPosition().x == 2));
+    }
 
-  /**
-   * @return the current list blocks on the "top" of the cube.
-   */
-  private List<Block> extractSideBlocks(Predicate<Block> filter)
-  {
-    return blocks.stream()
-      .filter(filter)
-      .collect(toList());
-  }
+    /**
+     * @return the current list blocks on the "left" of the cube.
+     */
+    public Left left(){
+
+        return new Left(extractSideBlocks(e -> e.getPosition().y == 0));
+    }
+
+    /**
+     * @return the current list blocks on the "right" of the cube.
+     */
+    public Right right(){
+
+        return new Right(extractSideBlocks(e -> e.getPosition().y == 2));
+    }
+
+    /**
+     * @return the current list blocks on the "front" of the cube.
+     */
+    public Front front(){
+
+        return new Front(extractSideBlocks(e -> e.getPosition().z == 0));
+    }
+
+    /**
+     * @return the current list blocks on the "back" of the cube.
+     */
+    public Back back(){
+
+        return new Back(extractSideBlocks(e -> e.getPosition().z == 2));
+    }
+
+    public List<Block> all(){
+
+        return new ArrayList<>(blocks);
+    }
+
+    public Block get(Position id){
+
+        return blockMap.get(id);
+    }
 }

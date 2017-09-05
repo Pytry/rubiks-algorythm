@@ -42,8 +42,6 @@ public enum Position{
         x_pivot_key = y + "" + z;
         y_pivot_key = y + "" + z;
         z_pivot_key = y + "" + z;
-
-
     }
 
     public static Position get(int a, int b, int c){

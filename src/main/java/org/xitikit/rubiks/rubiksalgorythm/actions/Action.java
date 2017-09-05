@@ -3,24 +3,25 @@ package org.xitikit.rubiks.rubiksalgorythm.actions;
 /**
  * Created by Keith on 9/4/2017.
  */
-public class Action
-{
-  private final ActionCode code;
-  private final int turns;
+public class Action{
 
-  public Action(ActionCode code, int turns)
-  {
-    this.code = code;
-    this.turns = turns;
-  }
+    private final ActionCode code;
 
-  public ActionCode getCode()
-  {
-    return code;
-  }
+    private final int turns;
 
-  public int getTurns()
-  {
-    return turns;
-  }
+    public Action(ActionCode code, int turns){
+
+        this.code = code;
+        this.turns = turns;
+    }
+
+    public ActionCode getCode(){
+
+        return code;
+    }
+
+    public int getTurns(){
+
+        return turns;
+    }
 }

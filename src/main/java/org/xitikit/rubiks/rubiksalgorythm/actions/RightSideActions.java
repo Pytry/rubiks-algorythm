@@ -8,47 +8,45 @@ import static org.xitikit.rubiks.rubiksalgorythm.actions.TurnNormalizer.normaliz
 /**
  * Created by Keith on 9/4/2017.
  */
-public final class RightSideActions
-{
-  /**
-   * Pivots the right side of the cube such that the current
-   * front-top-right corner is moved to the back-top-right.
-   *
-   * @param turns Number of turns or iterations that this operation
-   *              should be performed
-   * @param cube  The cube
-   */
-  public static void turnRightSideClockwise(int turns, Cube cube)
-  {
+public final class RightSideActions{
 
-    turnRightSide(
-      normalize(turns),
-      cube);
-  }
+    /**
+     * Pivots the right side of the cube such that the current
+     * front-top-right corner is moved to the front-botton-right.
+     *
+     * @param turns Number of turns or iterations that this operation
+     *              should be performed
+     * @param cube  The cube
+     */
+    public static void turnRightSideCounterClockwise(int turns, Cube cube){
 
-  /**
-   * Pivots the right side of the cube such that the current
-   * front-top-right corner is moved to the front-botton-right.
-   *
-   * @param turns Number of turns or iterations that this operation
-   *              should be performed
-   * @param cube  The cube
-   */
-  public static void turnRightSideCounterClockwise(int turns, Cube cube)
-  {
+        turnRightSideClockwise(turns * -1, cube);
+    }
 
-    turnRightSideClockwise(turns * -1, cube);
-  }
+    /**
+     * Pivots the right side of the cube such that the current
+     * front-top-right corner is moved to the back-top-right.
+     *
+     * @param turns Number of turns or iterations that this operation
+     *              should be performed
+     * @param cube  The cube
+     */
+    public static void turnRightSideClockwise(int turns, Cube cube){
 
-  /**
-   * Generic method which assumes clockwise movement.
-   *
-   * @param turns Number of turns or iterations that this operation
-   *              should be performed
-   * @param cube  The cube
-   */
-  private static void turnRightSide(final int turns, final Cube cube)
-  {
-    pivotSide(cube.right(), turns);
-  }
+        turnRightSide(
+            normalize(turns),
+            cube);
+    }
+
+    /**
+     * Generic method which assumes clockwise movement.
+     *
+     * @param turns Number of turns or iterations that this operation
+     *              should be performed
+     * @param cube  The cube
+     */
+    private static void turnRightSide(final int turns, final Cube cube){
+
+        pivotSide(cube.right(), turns);
+    }
 }

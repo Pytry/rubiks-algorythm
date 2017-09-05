@@ -28,103 +28,90 @@ import static org.xitikit.rubiks.rubiksalgorythm.actions.TopSideActions.turnTopS
  *
  * @author J. Keith Hoopes
  */
-public final class CubeTurner
-{
-  private final Cube cube;
+public final class CubeTurner{
 
-  public CubeTurner(@NonNull Cube cube)
-  {
-    this.cube = cube;
-  }
+    private final Cube cube;
 
-  /**
-   * Determines which action to perform according to the passed in ActionCode.
-   *
-   * @param actionList List&lt;Action&gt;
-   * @see ActionCode
-   */
-  public void process(@NonNull final List<Action> actionList)
-  {
-    actionList.forEach(
-      a -> process(
-        a.getCode(),
-        a.getTurns()));
-  }
+    public CubeTurner(@NonNull Cube cube){
 
-  /**
-   * Determines which action to perform according to the passed in ActionCode.
-   *
-   * @param code ActionCode
-   * @see ActionCode
-   */
-  public void process(@NonNull final ActionCode code, final int turns)
-  {
-    switch (code)
-    {
-      case F:
-      {
-        turnFrontSideClockwise(turns, cube);
-        break;
-      }
-      case FC:
-      {
-        turnFrontSideCounterClockwise(turns, cube);
-        break;
-      }
-      case BK:
-      {
-        turnBackSideClockwise(turns, cube);
-        break;
-      }
-      case BKC:
-      {
-        turnBackSideClockwise(turns, cube);
-        break;
-      }
-      case L:
-      {
-        turnLeftSideClockwise(turns, cube);
-        break;
-      }
-      case LC:
-      {
-        turnLeftSideCounterClockwise(turns, cube);
-        break;
-      }
-      case R:
-      {
-        turnRightSideClockwise(turns, cube);
-        break;
-      }
-      case RC:
-      {
-        turnRightSideCounterClockwise(turns, cube);
-        break;
-      }
-      case T:
-      {
-        turnTopSideClockwise(turns, cube);
-        break;
-      }
-      case TC:
-      {
-        turnTopSideCounterClockwise(turns, cube);
-        break;
-      }
-      case B:
-      {
-        turnBottomSideClockwise(turns, cube);
-        break;
-      }
-      case BC:
-      {
-        turnBottomSideCounterClockwise(turns, cube);
-        break;
-      }
-      default:
-        throw new CubeStateException("Invalid ActionCode enum found.");
+        this.cube = cube;
     }
-  }
 
+    /**
+     * Determines which action to perform according to the passed in ActionCode.
+     *
+     * @param actionList List&lt;Action&gt;
+     *
+     * @see ActionCode
+     */
+    public void process(@NonNull final List<Action> actionList){
 
+        actionList.forEach(
+            a -> process(
+                a.getCode(),
+                a.getTurns()));
+    }
+
+    /**
+     * Determines which action to perform according to the passed in ActionCode.
+     *
+     * @param code ActionCode
+     *
+     * @see ActionCode
+     */
+    public void process(@NonNull final ActionCode code, final int turns){
+
+        switch(code){
+            case F:{
+                turnFrontSideClockwise(turns, cube);
+                break;
+            }
+            case FC:{
+                turnFrontSideCounterClockwise(turns, cube);
+                break;
+            }
+            case BK:{
+                turnBackSideClockwise(turns, cube);
+                break;
+            }
+            case BKC:{
+                turnBackSideClockwise(turns, cube);
+                break;
+            }
+            case L:{
+                turnLeftSideClockwise(turns, cube);
+                break;
+            }
+            case LC:{
+                turnLeftSideCounterClockwise(turns, cube);
+                break;
+            }
+            case R:{
+                turnRightSideClockwise(turns, cube);
+                break;
+            }
+            case RC:{
+                turnRightSideCounterClockwise(turns, cube);
+                break;
+            }
+            case T:{
+                turnTopSideClockwise(turns, cube);
+                break;
+            }
+            case TC:{
+                turnTopSideCounterClockwise(turns, cube);
+                break;
+            }
+            case B:{
+                turnBottomSideClockwise(turns, cube);
+                break;
+            }
+            case BC:{
+                turnBottomSideCounterClockwise(turns, cube);
+                break;
+            }
+            default:
+                throw new CubeStateException("Invalid ActionCode enum found.");
+        }
+    }
 }

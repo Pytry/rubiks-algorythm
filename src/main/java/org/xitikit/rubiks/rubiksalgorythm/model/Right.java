@@ -14,8 +14,8 @@ import java.util.List;
  * @author J. Keith Hoopes
  */
 @FieldDefaults(
-  level = AccessLevel.PRIVATE,
-  makeFinal = true)
+    level = AccessLevel.PRIVATE,
+    makeFinal = true)
 @EqualsAndHashCode(callSuper = true)
 public class Right extends Side{
 

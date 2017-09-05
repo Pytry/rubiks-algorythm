@@ -25,49 +25,46 @@ import static org.xitikit.rubiks.rubiksalgorythm.model.attributes.Panel.PANELS;
 @Getter
 @Setter
 @EqualsAndHashCode
-public class Block
-{
+public class Block{
 
-  private final Position id;
+    private final Position id;
 
-  private final List<Panel> panelList;
+    private final List<Panel> panelList;
 
-  @NonNull
-  private Position position;
+    @NonNull
+    private Position position;
 
-  public static Set<Block> createBlocks()
-  {
-    return stream(Position.values())
-      .map(p -> new Block(p,
-          PANELS
-            .stream()
-            .filter(
-              panel -> panel
-                .getPoint()
-                .getPosition() == p
-            )
-            .collect(
-              toList()
-            )
-        )
-      )
-      .collect(
-        toSet()
-      );
-  }
+    private Block(
+        @NonNull final Position id,
+        @NonNull final List<Panel> panelList){
 
-  private Block(
-    @NonNull final Position id,
-    @NonNull final List<Panel> panelList)
-  {
+        if(panelList.size() > 3){
+            throw new CubeArgumentException("A Block cannot have more than 3 panels.");
+        }
 
-    if (panelList.size() > 3)
-    {
-      throw new CubeArgumentException("A Block cannot have more than 3 panels.");
+        this.id = id;
+        this.position = id;
+        this.panelList = unmodifiableList(panelList);
     }
 
-    this.id = id;
-    this.position = id;
-    this.panelList = unmodifiableList(panelList);
-  }
+    public static Set<Block> createBlocks(){
+
+        return stream(Position.values())
+            .map(p -> new Block(p,
+                    PANELS
+                        .stream()
+                        .filter(
+                            panel -> panel
+                                .getPoint()
+                                .getPosition() == p
+                        )
+                        .collect(
+                            toList()
+                        )
+                )
+            )
+            .collect(
+                toSet()
+            );
+    }
 }
