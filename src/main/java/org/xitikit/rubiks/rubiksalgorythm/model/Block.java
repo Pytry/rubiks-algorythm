@@ -1,14 +1,21 @@
 package org.xitikit.rubiks.rubiksalgorythm.model;
 
-import lombok.*;
-import lombok.experimental.FieldDefaults;
-import lombok.experimental.NonFinal;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.Setter;
 import org.xitikit.rubiks.rubiksalgorythm.CubeArgumentException;
 import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Panel;
-import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Point;
 import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Position;
 
-import java.util.*;
+import java.util.List;
+import java.util.Set;
+
+import static java.util.Arrays.stream;
+import static java.util.Collections.unmodifiableList;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
+import static org.xitikit.rubiks.rubiksalgorythm.model.attributes.Panel.PANELS;
 
 /**
  * Copyright ${year}
@@ -18,46 +25,49 @@ import java.util.*;
 @Getter
 @Setter
 @EqualsAndHashCode
-@FieldDefaults(
-    level = AccessLevel.PRIVATE,
-    makeFinal = true)
-public class Block{
+public class Block
+{
 
-    Position id;
+  private final Position id;
 
-    List<Panel> panelList;
+  private final List<Panel> panelList;
 
-    Map<Point,Panel> panelMap;
+  @NonNull
+  private Position position;
 
-    @NonFinal @NonNull
-    Position position;
+  public static Set<Block> createBlocks()
+  {
+    return stream(Position.values())
+      .map(p -> new Block(p,
+          PANELS
+            .stream()
+            .filter(
+              panel -> panel
+                .getPoint()
+                .getPosition() == p
+            )
+            .collect(
+              toList()
+            )
+        )
+      )
+      .collect(
+        toSet()
+      );
+  }
 
-    Block(
-        @NonNull final Position id,
-        @NonNull final List<Panel> panelList){
+  private Block(
+    @NonNull final Position id,
+    @NonNull final List<Panel> panelList)
+  {
 
-        if(panelList.size() < 4){
-            throw new CubeArgumentException("A Block cannot have more than 3 panels.");
-        }
-
-        this.id = id;
-        this.position = id;
-
-        List<Panel> tmpList = new ArrayList<>(3);
-        Map<Point,Panel> tmpMap = new HashMap<>(3);
-
-        for(Panel panel : panelList){
-            if(panel == null){
-                throw new CubeArgumentException("Panel cannot be null.");
-            }
-            if(tmpMap.containsKey(panel.getId()) || tmpList.contains(panel)){
-                throw new CubeArgumentException("Panel must be unique in Block.");
-            }
-            tmpList.add(panel);
-            tmpMap.put(panel.getId(), panel);
-        }
-
-        this.panelList = Collections.unmodifiableList(tmpList);
-        this.panelMap = Collections.unmodifiableMap(tmpMap);
+    if (panelList.size() > 3)
+    {
+      throw new CubeArgumentException("A Block cannot have more than 3 panels.");
     }
+
+    this.id = id;
+    this.position = id;
+    this.panelList = unmodifiableList(panelList);
+  }
 }
