@@ -13,7 +13,6 @@ public final class FrontSideActions{
     // FRONT //
     ///////////
 
-
     /**
      * Pivots the front side of the cube such that the current
      * front-top-left corner is moved to the front-botton-left.

@@ -15,10 +15,9 @@ import static org.xitikit.rubiks.rubiksalgorythm.model.attributes.Position.*;
  */
 public class BottomTurnFunctionsTest{
 
-
     @Test
-    public void testBottomTurn() throws Exception
-    {
+    public void testBottomTurn() throws Exception{
+
         Cube cube = new Cube();
         CubeTurner turner = new CubeTurner(cube);
 
@@ -37,8 +36,8 @@ public class BottomTurnFunctionsTest{
     }
 
     @Test
-    public void testBottomCounterTurn() throws Exception
-    {
+    public void testBottomCounterTurn() throws Exception{
+
         Cube cube = new Cube();
         CubeTurner turner = new CubeTurner(cube);
 

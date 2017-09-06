@@ -14,7 +14,8 @@ public final class SidePivotUtil{
 
     /**
      * Pivots the given side.
-     * @param side Target pivot side.
+     *
+     * @param side  Target pivot side.
      * @param turns The number of times to pivot.
      */
     public static void pivot(

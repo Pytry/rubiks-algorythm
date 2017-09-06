@@ -8,13 +8,14 @@ import static junit.framework.TestCase.assertTrue;
 /**
  * Created by Keith on 9/4/2017.
  */
-public class AxisTest
-{
-  @Test
-  public void test(){
-    assertTrue(Axis.values().length ==3);
-    assertNotNull(Axis.valueOf("X"));
-    assertNotNull(Axis.valueOf("Y"));
-    assertNotNull(Axis.valueOf("Z"));
-  }
+public class AxisTest{
+
+    @Test
+    public void test(){
+
+        assertTrue(Axis.values().length == 3);
+        assertNotNull(Axis.valueOf("X"));
+        assertNotNull(Axis.valueOf("Y"));
+        assertNotNull(Axis.valueOf("Z"));
+    }
 }

@@ -45,7 +45,7 @@ final class PointPivotUtil{
 
         Orientation answer = point.getOrientation();
         for(int i = 0; i < turns; i++){
-            answer = pivotOrientation(axis,answer);
+            answer = pivotOrientation(axis, answer);
         }
         return answer;
     }

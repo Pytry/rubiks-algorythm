@@ -8,11 +8,11 @@ import static junit.framework.TestCase.assertTrue;
 /**
  * Created by Keith on 9/4/2017.
  */
-public class ActionCodeTest
-{
-  @Test
-  public void test()
-  {
-    assertTrue(ActionCode.values().length == Orientation.values().length * 2);
-  }
+public class ActionCodeTest{
+
+    @Test
+    public void test(){
+
+        assertTrue(ActionCode.values().length == Orientation.values().length * 2);
+    }
 }
