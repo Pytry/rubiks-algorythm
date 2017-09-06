@@ -35,6 +35,7 @@ public abstract class Side{
         this.orientation = orientation;
     }
 
+    @NonNull
     public List<Block> getBlocks(){
 
         return blocks;

@@ -7,17 +7,17 @@ import org.xitikit.rubiks.rubiksalgorythm.model.Cube;
 
 import java.util.List;
 
-import static org.xitikit.rubiks.rubiksalgorythm.actions.BackSideActions.turnBackSideClockwise;
-import static org.xitikit.rubiks.rubiksalgorythm.actions.BottomSideActions.turnBottomSideClockwise;
-import static org.xitikit.rubiks.rubiksalgorythm.actions.BottomSideActions.turnBottomSideCounterClockwise;
-import static org.xitikit.rubiks.rubiksalgorythm.actions.FrontSideActions.turnFrontSideClockwise;
-import static org.xitikit.rubiks.rubiksalgorythm.actions.FrontSideActions.turnFrontSideCounterClockwise;
-import static org.xitikit.rubiks.rubiksalgorythm.actions.LeftSideActions.turnLeftSideClockwise;
-import static org.xitikit.rubiks.rubiksalgorythm.actions.LeftSideActions.turnLeftSideCounterClockwise;
-import static org.xitikit.rubiks.rubiksalgorythm.actions.RightSideActions.turnRightSideClockwise;
-import static org.xitikit.rubiks.rubiksalgorythm.actions.RightSideActions.turnRightSideCounterClockwise;
-import static org.xitikit.rubiks.rubiksalgorythm.actions.TopSideActions.turnTopSideClockwise;
-import static org.xitikit.rubiks.rubiksalgorythm.actions.TopSideActions.turnTopSideCounterClockwise;
+import static org.xitikit.rubiks.rubiksalgorythm.actions.back.BackSideActions.turnBackSideClockwise;
+import static org.xitikit.rubiks.rubiksalgorythm.actions.bottom.BottomSideActions.turnBottomSideClockwise;
+import static org.xitikit.rubiks.rubiksalgorythm.actions.bottom.BottomSideActions.turnBottomSideCounterClockwise;
+import static org.xitikit.rubiks.rubiksalgorythm.actions.front.FrontSideActions.turnFrontSideClockwise;
+import static org.xitikit.rubiks.rubiksalgorythm.actions.front.FrontSideActions.turnFrontSideCounterClockwise;
+import static org.xitikit.rubiks.rubiksalgorythm.actions.left.LeftSideActions.turnLeftSideClockwise;
+import static org.xitikit.rubiks.rubiksalgorythm.actions.left.LeftSideActions.turnLeftSideCounterClockwise;
+import static org.xitikit.rubiks.rubiksalgorythm.actions.right.RightSideActions.turnRightSideClockwise;
+import static org.xitikit.rubiks.rubiksalgorythm.actions.right.RightSideActions.turnRightSideCounterClockwise;
+import static org.xitikit.rubiks.rubiksalgorythm.actions.top.TopSideActions.turnTopSideClockwise;
+import static org.xitikit.rubiks.rubiksalgorythm.actions.top.TopSideActions.turnTopSideCounterClockwise;
 
 /**
  * Copyright ${year}

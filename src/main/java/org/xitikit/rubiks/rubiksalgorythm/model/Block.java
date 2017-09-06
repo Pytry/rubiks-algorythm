@@ -47,10 +47,11 @@ public class Block{
         this.panelList = unmodifiableList(panelList);
     }
 
-    public static Set<Block> createBlocks(){
+    static Set<Block> createBlocks(){
 
         return stream(Position.values())
-            .map(p -> new Block(p,
+            .map(p -> new Block(
+                    p,
                     PANELS
                         .stream()
                         .filter(

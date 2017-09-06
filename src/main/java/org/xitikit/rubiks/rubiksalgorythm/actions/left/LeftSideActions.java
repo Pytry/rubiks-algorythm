@@ -1,39 +1,39 @@
-package org.xitikit.rubiks.rubiksalgorythm.actions;
+package org.xitikit.rubiks.rubiksalgorythm.actions.left;
 
 import org.xitikit.rubiks.rubiksalgorythm.model.Cube;
 
-import static org.xitikit.rubiks.rubiksalgorythm.actions.PivotFunctions.pivotSide;
+import static org.xitikit.rubiks.rubiksalgorythm.actions.SidePivotUtil.pivot;
 import static org.xitikit.rubiks.rubiksalgorythm.actions.TurnNormalizer.normalize;
 
 /**
  * Created by Keith on 9/4/2017.
  */
-public final class BottomSideActions{
+public final class LeftSideActions{
 
     /**
-     * Pivots the Bottom side of the cube such that the current
-     * front-bottom-right corner is moved to the front-bottom-back.
+     * Pivots the right side of the cube such that the current
+     * front-top-right corner is moved to the front-botton-right.
      *
      * @param turns Number of turns or iterations that this operation
      *              should be performed
      * @param cube  The cube
      */
-    public static void turnBottomSideCounterClockwise(int turns, Cube cube){
+    public static void turnLeftSideCounterClockwise(int turns, Cube cube){
 
-        turnBottomSideClockwise(turns * -1, cube);
+        turnLeftSideClockwise(turns * -1, cube);
     }
 
     /**
-     * Pivots the bottom side of the cube such that the current
-     * front-bottom-right corner is moved to the front-bottom-left.
+     * Pivots the left side of the cube such that the current
+     * front-top-left corner is moved to the back-top-left.
      *
      * @param turns Number of turns or iterations that this operation
      *              should be performed
      * @param cube  The cube
      */
-    public static void turnBottomSideClockwise(int turns, Cube cube){
+    public static void turnLeftSideClockwise(int turns, Cube cube){
 
-        turnBottomSide(
+        turnLeftSide(
             normalize(turns),
             cube);
     }
@@ -45,8 +45,8 @@ public final class BottomSideActions{
      *              should be performed
      * @param cube  The cube
      */
-    private static void turnBottomSide(final int turns, final Cube cube){
+    private static void turnLeftSide(final int turns, final Cube cube){
 
-        pivotSide(cube.bottom(), turns);
+        pivot(cube.left(), turns);
     }
 }

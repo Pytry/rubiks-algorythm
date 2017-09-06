@@ -1,8 +1,8 @@
-package org.xitikit.rubiks.rubiksalgorythm.actions;
+package org.xitikit.rubiks.rubiksalgorythm.actions.front;
 
 import org.xitikit.rubiks.rubiksalgorythm.model.Cube;
 
-import static org.xitikit.rubiks.rubiksalgorythm.actions.PivotFunctions.pivotSide;
+import static org.xitikit.rubiks.rubiksalgorythm.actions.SidePivotUtil.pivot;
 import static org.xitikit.rubiks.rubiksalgorythm.actions.TurnNormalizer.normalize;
 
 /**
@@ -12,6 +12,7 @@ public final class FrontSideActions{
     ///////////
     // FRONT //
     ///////////
+
 
     /**
      * Pivots the front side of the cube such that the current
@@ -50,6 +51,6 @@ public final class FrontSideActions{
      */
     private static void turnFrontSide(final int turns, final Cube cube){
 
-        pivotSide(cube.front(), turns);
+        pivot(cube.front(), turns);
     }
 }

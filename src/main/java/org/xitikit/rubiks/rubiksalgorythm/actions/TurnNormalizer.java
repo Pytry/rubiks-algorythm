@@ -14,8 +14,8 @@ public final class TurnNormalizer{
         if(turns < 0){
             return reverse(
                 reduce(
-                    turns
-                ) * -1
+                    turns * -1
+                )
             );
         }
         return reduce(
