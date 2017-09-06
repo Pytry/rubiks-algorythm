@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.xitikit.rubiks.rubiksalgorythm.actions.Action;
 import org.xitikit.rubiks.rubiksalgorythm.actions.ActionCode;
 import org.xitikit.rubiks.rubiksalgorythm.model.Cube;
+import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Position;
 
 import java.util.Collections;
 
@@ -46,14 +47,15 @@ public class TopTurnFunctionsTest{
             new Action(ActionCode.FC, 1)
         ));
 
-        assertTrue(cube.get(_022).getPosition() == _002);
-        assertTrue(cube.get(_021).getPosition() == _012);
-        assertTrue(cube.get(_020).getPosition() == _022);
-        assertTrue(cube.get(_012).getPosition() == _001);
-        assertTrue(cube.get(_011).getPosition() == _011);
-        assertTrue(cube.get(_010).getPosition() == _021);
-        assertTrue(cube.get(_000).getPosition() == _020);
+        Position position = cube.get(_000).getPosition();
+        assertTrue(position == _020);
         assertTrue(cube.get(_001).getPosition() == _010);
         assertTrue(cube.get(_002).getPosition() == _000);
+        assertTrue(cube.get(_010).getPosition() == _021);
+        assertTrue(cube.get(_011).getPosition() == _011);
+        assertTrue(cube.get(_012).getPosition() == _001);
+        assertTrue(cube.get(_020).getPosition() == _022);
+        assertTrue(cube.get(_021).getPosition() == _012);
+        assertTrue(cube.get(_022).getPosition() == _002);
     }
 }

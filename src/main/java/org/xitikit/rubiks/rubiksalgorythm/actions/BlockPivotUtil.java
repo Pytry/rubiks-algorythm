@@ -14,12 +14,12 @@ final class BlockPivotUtil{
     static void pivot(
         @NonNull final Block block,
         @NonNull final Integer turns,
-        @NonNull final Orientation orientation){
+        @NonNull final Orientation axis){
 
         block.setPosition(
             PositionPivotUtil.pivot(
                 block.getPosition(),
-                orientation,
+                axis,
                 turns
             ));
 
@@ -28,7 +28,7 @@ final class BlockPivotUtil{
                 panel -> panel.setPoint(
                     PointPivotUtil.pivot(
                         panel.getPoint(),
-                        orientation,
+                        axis,
                         turns,
                         block.getPosition()
                     )

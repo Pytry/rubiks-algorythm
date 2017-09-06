@@ -8,6 +8,7 @@ import org.xitikit.rubiks.rubiksalgorythm.model.Cube;
 import java.util.List;
 
 import static org.xitikit.rubiks.rubiksalgorythm.actions.back.BackSideActions.turnBackSideClockwise;
+import static org.xitikit.rubiks.rubiksalgorythm.actions.back.BackSideActions.turnBackSideCounterClockwise;
 import static org.xitikit.rubiks.rubiksalgorythm.actions.bottom.BottomSideActions.turnBottomSideClockwise;
 import static org.xitikit.rubiks.rubiksalgorythm.actions.bottom.BottomSideActions.turnBottomSideCounterClockwise;
 import static org.xitikit.rubiks.rubiksalgorythm.actions.front.FrontSideActions.turnFrontSideClockwise;
@@ -75,7 +76,7 @@ public final class CubeTurner{
                 break;
             }
             case BKC:{
-                turnBackSideClockwise(turns, cube);
+                turnBackSideCounterClockwise(turns, cube);
                 break;
             }
             case L:{

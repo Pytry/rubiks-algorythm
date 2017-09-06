@@ -73,27 +73,29 @@ final class PositionPivotUtil{
         return answer;
     }
 
-    final static Map<String,Position> createPositionPivots(){
+    private static Map<String,Position> createPositionPivots(){
 
         Map<String,Position> tmp = new HashMap<>();
         // FRONT
         tmp.put(F.name() + _000.name(), _020);
         tmp.put(F.name() + _010.name(), _120);
         tmp.put(F.name() + _020.name(), _220);
-        tmp.put(F.name() + _120.name(), _210);
-        tmp.put(F.name() + _220.name(), _200);
-        tmp.put(F.name() + _210.name(), _100);
-        tmp.put(F.name() + _200.name(), _000);
         tmp.put(F.name() + _100.name(), _010);
+        tmp.put(F.name() + _110.name(), _110);
+        tmp.put(F.name() + _120.name(), _210);
+        tmp.put(F.name() + _200.name(), _000);
+        tmp.put(F.name() + _210.name(), _100);
+        tmp.put(F.name() + _220.name(), _200);
         // FRONT COUNTER
         tmp.put(FC.name() + _000.name(), _200);
+        tmp.put(FC.name() + _010.name(), _100);
+        tmp.put(FC.name() + _020.name(), _000);
         tmp.put(FC.name() + _100.name(), _210);
+        tmp.put(FC.name() + _110.name(), _110);
+        tmp.put(FC.name() + _120.name(), _010);
         tmp.put(FC.name() + _200.name(), _220);
         tmp.put(FC.name() + _210.name(), _120);
         tmp.put(FC.name() + _220.name(), _020);
-        tmp.put(FC.name() + _120.name(), _010);
-        tmp.put(FC.name() + _020.name(), _000);
-        tmp.put(FC.name() + _010.name(), _100);
         // BACK
         tmp.put(BK.name() + _002, _022);
         tmp.put(BK.name() + _012, _122);
