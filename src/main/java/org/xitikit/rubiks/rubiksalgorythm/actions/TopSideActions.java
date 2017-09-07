@@ -1,4 +1,4 @@
-package org.xitikit.rubiks.rubiksalgorythm.actions.front;
+package org.xitikit.rubiks.rubiksalgorythm.actions;
 
 import org.xitikit.rubiks.rubiksalgorythm.model.Cube;
 
@@ -8,35 +8,32 @@ import static org.xitikit.rubiks.rubiksalgorythm.actions.TurnNormalizer.normaliz
 /**
  * Created by Keith on 9/4/2017.
  */
-public final class FrontSideActions{
-    ///////////
-    // FRONT //
-    ///////////
+public final class TopSideActions{
 
     /**
-     * Pivots the front side of the cube such that the current
-     * front-top-left corner is moved to the front-botton-left.
+     * Pivots the right side of the cube such that the current
+     * front-top-right corner is moved to the front-top-back.
      *
      * @param turns Number of turns or iterations that this operation
      *              should be performed
      * @param cube  The cube
      */
-    public static void turnFrontSideCounterClockwise(int turns, Cube cube){
+    public static void turnTopSideCounterClockwise(int turns, Cube cube){
 
-        turnFrontSideClockwise(turns * -1, cube);
+        turnTopSideClockwise(turns * -1, cube);
     }
 
     /**
-     * Pivots the FRONT side of the cube such that the current
-     * front-top-left corner is moved to the front-top-right.
+     * Pivots the top side of the cube such that the current
+     * front-top-right corner is moved to the front-top-left.
      *
      * @param turns Number of turns or iterations that this operation
      *              should be performed
      * @param cube  The cube
      */
-    public static void turnFrontSideClockwise(int turns, Cube cube){
+    public static void turnTopSideClockwise(int turns, Cube cube){
 
-        turnFrontSide(
+        turnTopSide(
             normalize(turns),
             cube);
     }
@@ -48,8 +45,8 @@ public final class FrontSideActions{
      *              should be performed
      * @param cube  The cube
      */
-    private static void turnFrontSide(final int turns, final Cube cube){
+    private static void turnTopSide(final int turns, final Cube cube){
 
-        pivot(cube.front(), turns);
+        pivot(cube.top(), turns);
     }
 }

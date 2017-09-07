@@ -1,4 +1,4 @@
-package org.xitikit.rubiks.rubiksalgorythm.actions.back;
+package org.xitikit.rubiks.rubiksalgorythm.actions;
 
 import org.xitikit.rubiks.rubiksalgorythm.model.Cube;
 
