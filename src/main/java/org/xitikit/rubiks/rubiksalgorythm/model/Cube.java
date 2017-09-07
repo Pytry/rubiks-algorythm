@@ -99,7 +99,7 @@ public class Cube{
         return new Back(extractSideBlocks(e -> e.getPosition().z == 2));
     }
 
-    public List<Block> all(){
+    List<Block> all(){
 
         return new ArrayList<>(blocks);
     }

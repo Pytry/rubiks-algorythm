@@ -23,7 +23,7 @@ public final class TurnNormalizer{
         );
     }
 
-    public static int reverse(int quarterTurns){
+    private static int reverse(int quarterTurns){
 
         switch(quarterTurns){
             case 1:
@@ -36,7 +36,7 @@ public final class TurnNormalizer{
         throw new CubeStateException("Invalid quarter turns entered.");
     }
 
-    public static int reduce(int quarterTurns){
+    private static int reduce(int quarterTurns){
 
         return quarterTurns % 4;
     }

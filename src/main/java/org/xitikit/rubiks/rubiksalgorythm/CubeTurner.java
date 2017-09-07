@@ -29,11 +29,11 @@ import static org.xitikit.rubiks.rubiksalgorythm.actions.top.TopSideActions.turn
  *
  * @author J. Keith Hoopes
  */
-public final class CubeTurner{
+final class CubeTurner{
 
     private final Cube cube;
 
-    public CubeTurner(@NonNull Cube cube){
+    CubeTurner(@NonNull Cube cube){
 
         this.cube = cube;
     }
@@ -45,7 +45,7 @@ public final class CubeTurner{
      *
      * @see ActionCode
      */
-    public void process(@NonNull final List<Action> actionList){
+    void process(@NonNull final List<Action> actionList){
 
         actionList.forEach(
             a -> process(
@@ -60,7 +60,7 @@ public final class CubeTurner{
      *
      * @see ActionCode
      */
-    public void process(@NonNull final ActionCode code, final int turns){
+    private void process(@NonNull final ActionCode code, final int turns){
 
         switch(code){
             case F:{

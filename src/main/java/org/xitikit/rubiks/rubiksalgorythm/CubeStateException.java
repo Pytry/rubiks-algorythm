@@ -7,7 +7,7 @@ package org.xitikit.rubiks.rubiksalgorythm;
  */
 public class CubeStateException extends IllegalStateException{
 
-    public CubeStateException(){
+    CubeStateException(){
 
     }
 
@@ -16,7 +16,7 @@ public class CubeStateException extends IllegalStateException{
         super(s);
     }
 
-    public CubeStateException(final String message, final Throwable cause){
+    CubeStateException(final String message, final Throwable cause){
 
         super(message, cause);
     }

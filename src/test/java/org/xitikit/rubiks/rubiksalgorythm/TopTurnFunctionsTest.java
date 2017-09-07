@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.xitikit.rubiks.rubiksalgorythm.actions.Action;
 import org.xitikit.rubiks.rubiksalgorythm.actions.ActionCode;
 import org.xitikit.rubiks.rubiksalgorythm.model.Cube;
-import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Position;
 
 import java.util.Collections;
 
@@ -43,11 +42,10 @@ public class TopTurnFunctionsTest{
         CubeTurner turner = new CubeTurner(cube);
 
         turner.process(Collections.singletonList(
-            new Action(ActionCode.FC, 1)
+            new Action(ActionCode.TC, 1)
         ));
 
-        Position position = cube.get(_000).getPosition();
-        assertTrue(position == _020);
+        assertTrue(cube.get(_000).getPosition() == _020);
         assertTrue(cube.get(_001).getPosition() == _010);
         assertTrue(cube.get(_002).getPosition() == _000);
         assertTrue(cube.get(_010).getPosition() == _021);

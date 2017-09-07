@@ -12,7 +12,7 @@ public final class RightSideActions{
 
     /**
      * Pivots the right side of the cube such that the current
-     * front-top-right corner is moved to the front-botton-right.
+     * front-top-right corner is moved to the front-bottom-right.
      *
      * @param turns Number of turns or iterations that this operation
      *              should be performed

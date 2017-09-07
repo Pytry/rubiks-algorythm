@@ -167,15 +167,15 @@ final class PositionPivotUtil{
         tmp.put(T.name() + _021, _010);
         tmp.put(T.name() + _022, _020);
         // TOP COUNTER
-        tmp.put(TC.name() + _022, _002);
-        tmp.put(TC.name() + _021, _012);
-        tmp.put(TC.name() + _020, _022);
-        tmp.put(TC.name() + _012, _001);
-        tmp.put(TC.name() + _011, _011);
-        tmp.put(TC.name() + _010, _021);
         tmp.put(TC.name() + _000, _020);
         tmp.put(TC.name() + _001, _010);
         tmp.put(TC.name() + _002, _000);
+        tmp.put(TC.name() + _010, _021);
+        tmp.put(TC.name() + _011, _011);
+        tmp.put(TC.name() + _012, _001);
+        tmp.put(TC.name() + _020, _022);
+        tmp.put(TC.name() + _021, _012);
+        tmp.put(TC.name() + _022, _002);
         // BOTTOM
         tmp.put(B.name() + _200, _202);
         tmp.put(B.name() + _201, _212);
