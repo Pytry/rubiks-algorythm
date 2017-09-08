@@ -2,6 +2,9 @@ package org.xitikit.rubiks.rubiksalgorythm.model;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import org.xitikit.rubiks.rubiksalgorythm.CubeStateException;
+import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Panel;
+import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Point;
 import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Position;
 
 import java.util.ArrayList;
@@ -99,7 +102,7 @@ public class Cube{
         return new Back(extractSideBlocks(e -> e.getPosition().z == 2));
     }
 
-    List<Block> all(){
+    public List<Block> all(){
 
         return new ArrayList<>(blocks);
     }
@@ -107,5 +110,18 @@ public class Cube{
     public Block get(Position id){
 
         return blockMap.get(id);
+    }
+
+    public Panel get(Point point){
+
+        return get(point.getPosition())
+            .getPanelList()
+            .stream()
+            .filter(
+                p -> p.getPoint() == point)
+            .findFirst()
+            .orElseThrow(
+                () -> new CubeStateException("Point '" + point + "' not mapped to panel.")
+            );
     }
 }

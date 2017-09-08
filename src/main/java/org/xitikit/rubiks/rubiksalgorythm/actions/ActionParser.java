@@ -17,7 +17,7 @@ import static java.util.stream.Collectors.toList;
  */
 public class ActionParser{
 
-    public static List<Action> parseActions(@NonNull final String actionScript){
+    public static List<Action> parse(@NonNull final String actionScript){
 
         return convertToActionClass(actionScript.replace("\r\n", "\n").split("\n"));
     }
@@ -28,6 +28,10 @@ public class ActionParser{
             .map(
                 s -> {
                     String[] tmp = s.split(" ");
+
+                    if(tmp.length != 2){
+                        throw new CubeArgumentException("Script must conatain a single command followed by an integer on each line, and there must be at least one line");
+                    }
                     return convert(tmp[0], tmp[1]);
                 }
             )
@@ -75,7 +79,7 @@ public class ActionParser{
      *
      * @return String
      */
-    public String readActionScript(@NonNull final String path){
+    public static String read(@NonNull final String path){
 
         try{
             return new String(
@@ -87,5 +91,10 @@ public class ActionParser{
         catch(IOException e){
             throw new CubeArgumentException(e);
         }
+    }
+
+    public static List<Action> readAndParseActionScript(@NonNull final String path){
+
+        return parse(read(path));
     }
 }

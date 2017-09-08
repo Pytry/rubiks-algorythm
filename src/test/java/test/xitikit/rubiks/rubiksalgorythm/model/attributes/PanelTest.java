@@ -1,6 +1,11 @@
-package org.xitikit.rubiks.rubiksalgorythm.model.attributes;
+package test.xitikit.rubiks.rubiksalgorythm.model.attributes;
 
 import org.junit.Test;
+import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Color;
+import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Orientation;
+import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Panel;
+
+import java.util.Arrays;
 
 import static java.util.Arrays.stream;
 import static org.junit.Assert.assertTrue;
@@ -16,7 +21,7 @@ public class PanelTest{
 
         assertTrue(PANELS.size() == 9 * 6);
 
-        stream(Orientation.values()).forEach(
+        Arrays.stream(Orientation.values()).forEach(
             o -> assertTrue(PANELS
                 .stream()
                 .filter(p ->
@@ -24,7 +29,7 @@ public class PanelTest{
                 .count() == 9)
         );
 
-        stream(Color.values()).forEach(
+        Arrays.stream(Color.values()).forEach(
             o -> assertTrue(PANELS
                 .stream()
                 .filter(

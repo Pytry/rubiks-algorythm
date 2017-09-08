@@ -1,6 +1,7 @@
-package org.xitikit.rubiks.rubiksalgorythm.model.attributes;
+package test.xitikit.rubiks.rubiksalgorythm.model.attributes;
 
 import org.junit.Test;
+import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Position;
 
 import static junit.framework.TestCase.assertTrue;
 

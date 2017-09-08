@@ -1,6 +1,7 @@
-package org.xitikit.rubiks.rubiksalgorythm.actions;
+package test.xitikit.rubiks.rubiksalgorythm.actions;
 
 import org.junit.Test;
+import org.xitikit.rubiks.rubiksalgorythm.actions.ActionCode;
 import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Orientation;
 
 import static junit.framework.TestCase.assertTrue;

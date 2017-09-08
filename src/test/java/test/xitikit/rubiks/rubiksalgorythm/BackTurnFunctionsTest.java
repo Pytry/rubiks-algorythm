@@ -1,6 +1,7 @@
-package org.xitikit.rubiks.rubiksalgorythm;
+package test.xitikit.rubiks.rubiksalgorythm;
 
 import org.junit.Test;
+import org.xitikit.rubiks.rubiksalgorythm.CubeManipulator;
 import org.xitikit.rubiks.rubiksalgorythm.actions.Action;
 import org.xitikit.rubiks.rubiksalgorythm.actions.ActionCode;
 import org.xitikit.rubiks.rubiksalgorythm.model.Cube;
@@ -19,7 +20,7 @@ public class BackTurnFunctionsTest{
     public void testBackTurn() throws Exception{
 
         Cube cube = new Cube();
-        CubeTurner turner = new CubeTurner(cube);
+        CubeManipulator turner = new CubeManipulator(cube);
 
         turner.process(Collections.singletonList(
             new Action(ActionCode.BK, 1)
@@ -39,7 +40,7 @@ public class BackTurnFunctionsTest{
     public void testBackCounterTurn() throws Exception{
 
         Cube cube = new Cube();
-        CubeTurner turner = new CubeTurner(cube);
+        CubeManipulator turner = new CubeManipulator(cube);
 
         turner.process(Collections.singletonList(
             new Action(ActionCode.BKC, 1)

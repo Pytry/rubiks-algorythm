@@ -1,6 +1,8 @@
-package org.xitikit.rubiks.rubiksalgorythm.model.attributes;
+package test.xitikit.rubiks.rubiksalgorythm.model.attributes;
 
 import org.junit.Test;
+import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Color;
+import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Orientation;
 
 import static junit.framework.TestCase.assertTrue;
 

@@ -1,6 +1,7 @@
-package org.xitikit.rubiks.rubiksalgorythm;
+package test.xitikit.rubiks.rubiksalgorythm;
 
 import org.junit.Test;
+import org.xitikit.rubiks.rubiksalgorythm.CubeArgumentException;
 
 /**
  * Copyright ${year}

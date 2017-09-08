@@ -7,7 +7,7 @@ package org.xitikit.rubiks.rubiksalgorythm;
  */
 public class CubeArgumentException extends IllegalArgumentException{
 
-    CubeArgumentException(){
+    public CubeArgumentException(){
 
     }
 
@@ -16,7 +16,7 @@ public class CubeArgumentException extends IllegalArgumentException{
         super(s);
     }
 
-    CubeArgumentException(final String message, final Throwable cause){
+    public CubeArgumentException(final String message, final Throwable cause){
 
         super(message, cause);
     }

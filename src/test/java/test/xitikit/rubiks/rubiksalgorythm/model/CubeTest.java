@@ -1,6 +1,7 @@
-package org.xitikit.rubiks.rubiksalgorythm.model;
+package test.xitikit.rubiks.rubiksalgorythm.model;
 
 import org.junit.Test;
+import org.xitikit.rubiks.rubiksalgorythm.model.Cube;
 import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Position;
 
 import java.util.Arrays;
