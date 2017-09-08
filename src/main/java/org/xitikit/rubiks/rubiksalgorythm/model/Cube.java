@@ -2,7 +2,6 @@ package org.xitikit.rubiks.rubiksalgorythm.model;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
-import org.xitikit.rubiks.rubiksalgorythm.CubeStateException;
 import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Panel;
 import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Point;
 import org.xitikit.rubiks.rubiksalgorythm.model.attributes.Position;
@@ -12,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 import static java.util.Collections.unmodifiableSet;
 import static java.util.stream.Collectors.toList;
@@ -109,19 +109,37 @@ public class Cube{
 
     public Block get(Position id){
 
-        return blockMap.get(id);
+        return blocks.stream()
+            .filter(
+                b -> b.getPosition() == id)
+            .findFirst().
+                orElse(null);
     }
 
     public Panel get(Point point){
 
-        return get(point.getPosition())
-            .getPanelList()
-            .stream()
+        Position position = point.getPosition();
+        Block block = get(position);
+        List<Panel> panelList = block.getPanelList();
+        Stream<Panel> stream = panelList.stream();
+        List<Panel> panelStream = stream
             .filter(
-                p -> p.getPoint() == point)
-            .findFirst()
-            .orElseThrow(
-                () -> new CubeStateException("Point '" + point + "' not mapped to panel.")
-            );
+                p -> p.getPoint() == point
+            )
+            .collect(toList());
+        if(panelStream.size() <= 0){
+            System.out.println("WTF?");
+        }
+        return panelStream.get(0);
+
+        //        return get(point.getPosition())
+        //            .getPanelList()
+        //            .stream()
+        //            .filter(
+        //                p -> p.getPoint() == point)
+        //            .findFirst()
+        //            .orElseThrow(
+        //                () -> new CubeStateException("Point '" + point + "' not mapped to panel.")
+        //            );
     }
 }

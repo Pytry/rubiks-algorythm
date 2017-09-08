@@ -20,15 +20,15 @@ public class ActionParserTest{
                 " *  *  *  R  R  R  *  *  * \n" +
                 " *  *  *  R  R  R  *  *  * \n" +
                 " *  *  *  R  R  R  *  *  * \n" +
-                " B  B  B  W  W  W  B  B  B \n" +
-                " B  B  B  W  W  W  B  B  B \n" +
-                " B  B  B  W  W  W  B  B  B \n" +
+                " B  B  B  W  W  W  G  G  G \n" +
+                " B  B  B  W  W  W  G  G  G \n" +
+                " B  B  B  W  W  W  G  G  G \n" +
                 " *  *  *  O  O  O  *  *  * \n" +
                 " *  *  *  O  O  O  *  *  * \n" +
                 " *  *  *  O  O  O  *  *  * \n" +
                 " *  *  *  Y  Y  Y  *  *  * \n" +
                 " *  *  *  Y  Y  Y  *  *  * \n" +
-                " *  *  *  Y  Y  Y  *  *  * \n",
+                " *  *  *  Y  Y  Y  *  *  * ",
             CubeScriptExecutor.instance()
                 .withNewCube()
                 .getCubeText()

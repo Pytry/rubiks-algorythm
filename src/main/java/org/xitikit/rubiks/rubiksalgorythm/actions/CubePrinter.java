@@ -155,24 +155,28 @@ public final class CubePrinter{
     public static String cubeString(@NonNull final String[][][] cube){
 
         StringBuilder builder = new StringBuilder();
-        int x = 0, y = 0, z = 0;
+        int x = 0, y = 0, z = 0, time = 0;
         while(x < 3 && y < 3 && z < 12){
             builder.append(cube[z][x][y]);
+            if(y + 1 >= 3
+                && x + 1 >= 3
+                && z + 1 >= 12){
+                break;
+            }
             if(y >= 2){
-                if(z < 11){
-                    if(z % 3 == 2){
-                        builder.append("\n");
+                if(z % 3 == 2){
+                    builder.append("\n");
+                    if(x >= 2){
+                        time++;
+                        x = 0;
                     }
+                    else{
+                        x++;
+                    }
+                    z = (time * 3) + ((z+1) % 3);
                 }
                 else{
-                    break;
-                }
-                if(x >= 2){
-
-                    x = 0;
-                }
-                else{
-                    x++;
+                    z++;
                 }
                 y = 0;
             }
